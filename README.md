@@ -1,20 +1,29 @@
-# Memetic Capstone Project
+# Memetic AI — AI-Powered Meme Generator
 
-AI-Powered Meme Generator with **Fine-tuned Model**.
+**Capstone Project**
 
-## Project Structure
-- `data/` - raw and processed datasets
-- `src/` - application code
-- `fine_tuning/` - training scripts
-- `notebooks/` - experiments
-- `presentation/` - slides
+Собственная fine-tuned модель (Qwen2.5-3B) для генерации мемов по Product + Pain Point.
 
-## Setup
-1. `pip install -r requirements.txt`
-2. Run `python data_processing.py` to prepare data
+## Как запустить
 
-## Next
-- Fine-tuning with Unsloth
-- Integration into Web/Telegram
+### Веб-приложение (Streamlit)
+```bash
+git clone https://github.com/GeorgeRudenko/memetic-capstone.git
+cd memetic-capstone
+pip install -r requirements.txt
+streamlit run app.py
+```
 
-Repo for HSE Capstone.
+### Или через скрипт
+```bash
+python inference.py
+```
+
+## Структура проекта
+- `app.py` — Streamlit веб-интерфейс
+- `inference.py` — генерация мемов
+- `data_processing.py` — подготовка данных
+- `fine_tuning/train.py` — скрипт обучения
+- `Memetic_MVP_v2.pptx` — презентация
+
+**Автор:** Георгий Руденко
