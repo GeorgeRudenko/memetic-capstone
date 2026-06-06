@@ -1,10 +1,6 @@
-pandas
-numpy
-datasets
-huggingface_hub
-gitpython
-# For LLM: groq or openai
-# groq
-# unsloth
-# torch
-# transformers
+streamlit
+torch
+transformers
+unsloth
+accelerate
+bitsandbytes
