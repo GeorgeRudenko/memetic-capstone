@@ -1,20 +1,20 @@
 # Memetic Capstone Project
 
-**AI-Powered Meme Generator for SMM with Fine-tuned LLM**
+AI-Powered Meme Generator with **Fine-tuned Model**.
 
-Product + Pain = Meme in 10 seconds
+## Project Structure
+- `data/` - raw and processed datasets
+- `src/` - application code
+- `fine_tuning/` - training scripts
+- `notebooks/` - experiments
+- `presentation/` - slides
 
-## Project Goals
-- Fine-tune our own model (Qwen2.5-7B) on meme generation
-- Keep Web + Telegram interfaces
-- Strong Data + Modeling sections for Capstone pitch
+## Setup
+1. `pip install -r requirements.txt`
+2. Run `python data_processing.py` to prepare data
 
-## Structure
-- `data/` — datasets (ImgFlip575K etc.)
-- `src/` — app code (web, bot)
-- `fine_tuning/` — training scripts
-- `notebooks/` — EDA and experiments
-- `presentation/` — Memetic_MVP_v2.pptx and assets
+## Next
+- Fine-tuning with Unsloth
+- Integration into Web/Telegram
 
-## Current Status
-Initial setup complete. Starting with data pipeline.
+Repo for HSE Capstone.

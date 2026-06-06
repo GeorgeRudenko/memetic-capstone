@@ -1,12 +1,10 @@
-torch
-transformers
-unsloth
-peft
-trl
+pandas
+numpy
 datasets
 huggingface_hub
 gitpython
-streamlit
-python-telegram-bot
-pandas
-numpy
+# For LLM: groq or openai
+# groq
+# unsloth
+# torch
+# transformers
