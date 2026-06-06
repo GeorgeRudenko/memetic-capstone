@@ -1,11 +1,12 @@
 import os
 import json
 import pandas as pd
-from datasets import Dataset, load_dataset
-from huggingface_hub import login
-# For synthetic generation we'll use Groq or OpenAI compatible later
+from datasets import Dataset
+import random
+from tqdm import tqdm
 
-# Script for processing ImgFlip575K + synthetic augmentation for Memetic fine-tuning
+# For synthetic generation - we'll use Groq or OpenAI-compatible API later
+# os.environ["GROQ_API_KEY"] = "your_key_here"
 
 def download_imgflip_dataset():
     """Download or clone the ImgFlip575K dataset"""
@@ -14,88 +15,93 @@ def download_imgflip_dataset():
     
     if not os.path.exists(dataset_dir):
         os.makedirs(dataset_dir, exist_ok=True)
-        print("Cloning ImgFlip575K dataset...")
-        os.system(f"git clone {repo_url} {dataset_dir}")
+        print("Cloning ImgFlip575K dataset... (this may take a few minutes)")
+        os.system(f"git clone {repo_url} {dataset_dir} --depth 1")
     else:
         print("Dataset already downloaded.")
     
     return dataset_dir
 
-def filter_memes(df, min_votes=100, min_views=1000):
-    """Filter popular memes"""
-    if 'votes' in df.columns and 'views' in df.columns:
-        return df[(df['votes'] >= min_votes) & (df['views'] >= min_views)]
-    return df
-
-def preprocess_imgflip(dataset_dir):
-    """Preprocess the dataset into structured format"""
+def load_and_filter_memes(dataset_dir, min_votes=50):
+    """Load JSON files and filter high-quality memes"""
     data = []
+    json_files = []
+    
     for root, dirs, files in os.walk(dataset_dir):
         for file in files:
             if file.endswith('.json'):
-                with open(os.path.join(root, file), 'r', encoding='utf-8') as f:
-                    try:
-                        meme = json.load(f)
-                        template = meme.get('template_name', '') or meme.get('template', '')
-                        texts = meme.get('texts', []) or meme.get('text', [])
-                        title = meme.get('title', '')
-                        votes = meme.get('votes', 0)
-                        views = meme.get('views', 0)
-                        
-                        if texts and template:
-                            data.append({
-                                'template': template,
-                                'meme_texts': texts,
-                                'title': title,
-                                'votes': votes,
-                                'views': views,
-                                'product': '',  # synthetic
-                                'pain': '',     # synthetic
-                                'emotion': ''   # synthetic
-                            })
-                    except Exception as e:
-                        continue
+                json_files.append(os.path.join(root, file))
+    
+    print(f"Found {len(json_files)} JSON files. Processing...")
+    
+    for json_path in tqdm(json_files[:1000]):  # Limit to speed up initial run
+        try:
+            with open(json_path, 'r', encoding='utf-8') as f:
+                meme = json.load(f)
+                
+                template_name = meme.get('template_name') or meme.get('template', '')
+                texts = meme.get('texts') or meme.get('text_boxes', []) or meme.get('text', [])
+                votes = meme.get('votes') or meme.get('up_votes', 0)
+                views = meme.get('views', 0)
+                
+                if texts and len(texts) >= 1 and votes >= min_votes:
+                    data.append({
+                        'template': template_name,
+                        'meme_texts': texts[:3],
+                        'votes': votes,
+                        'views': views,
+                        'product': None,
+                        'pain': None,
+                        'emotion': None
+                    })
+        except:
+            continue
     
     df = pd.DataFrame(data)
-    print(f'Processed {len(df)} memes from ImgFlip')
+    print(f"Filtered to {len(df)} high-quality memes")
     return df
 
-def generate_synthetic_data(df_sample, num_samples=1000):
-    """Use LLM (Groq/Qwen) to generate synthetic (product, pain, meme) examples"""
-    # Placeholder - in real run use Groq client or vLLM
-    print(f'Generating {num_samples} synthetic examples...')
+def generate_synthetic_data(df, num_samples=5000):
+    """Generate synthetic (product, pain) using placeholder. Replace with real LLM call (Groq/Qwen)."""
+    print(f"Generating {num_samples} synthetic examples...")
+    
+    products = ['gym', 'fitness app', 'coffee shop', 'online course', 'crypto wallet', 'language learning app', 'meal delivery', 'meditation app']
+    pains = ['no motivation to workout', 'tired after work', 'too expensive', 'boring lessons', 'hard to track expenses', 'forgetting words', 'no time to cook', 'stress and anxiety']
+    emotions = ['frustration', 'irony', 'motivation', 'relatable']
+    
     synthetic = []
-    for i in range(min(num_samples, len(df_sample))):
-        row = df_sample.iloc[i]
+    sample_df = df.sample(n=min(num_samples, len(df)))
+    for _, row in tqdm(sample_df.iterrows(), total=len(sample_df)):
+        product = random.choice(products)
+        pain = random.choice(pains)
+        emotion = random.choice(emotions)
+        
         synthetic.append({
-            'product': 'example_product',
-            'pain': 'example_pain',
-            'meme_texts': row['meme_texts'],
             'template': row['template'],
-            'emotion': 'frustration_to_motivation'
+            'meme_texts': row['meme_texts'],
+            'product': product,
+            'pain': pain,
+            'emotion': emotion,
+            'original_votes': row.get('votes', 0)
         })
+    
     return pd.DataFrame(synthetic)
 
-def save_to_hf_format(df, dataset_name='memetic-finetune'):
-    """Save to Hugging Face Dataset format"""
+def save_to_hf_format(df, output_dir="data/processed"):
+    """Save as Hugging Face Dataset"""
+    os.makedirs(output_dir, exist_ok=True)
     dataset = Dataset.from_pandas(df)
-    dataset.save_to_disk(f'data/processed/{dataset_name}')
-    print(f'Saved to Hugging Face format in data/processed/{dataset_name}')
-    # dataset.push_to_hub(dataset_name)  # uncomment after login
+    dataset.save_to_disk(output_dir)
+    print(f"✅ Saved {len(df)} examples to {output_dir}")
+    return dataset
 
 if __name__ == "__main__":
+    # Run processing
     dataset_dir = download_imgflip_dataset()
-    df = preprocess_imgflip(dataset_dir)
-    df = filter_memes(df)
+    df = load_and_filter_memes(dataset_dir)
+    synthetic_df = generate_synthetic_data(df, num_samples=8000)
     
-    # Sample for synthetic generation
-    sample_df = df.sample(min(5000, len(df))) if len(df) > 0 else df
-    synthetic_df = generate_synthetic_data(sample_df, num_samples=2000)
+    dataset = save_to_hf_format(synthetic_df)
+    synthetic_df.to_csv('data/processed/memes_synthetic.csv', index=False)
     
-    final_df = pd.concat([df.head(1000), synthetic_df], ignore_index=True)
-    
-    os.makedirs('data/processed', exist_ok=True)
-    final_df.to_csv('data/processed/memes_processed.csv', index=False)
-    save_to_hf_format(final_df)
-    
-    print('✅ Preprocessing and synthetic data generation complete!')
+    print("🎉 Data processing complete! Dataset ready for fine-tuning with Qwen2.5.")
