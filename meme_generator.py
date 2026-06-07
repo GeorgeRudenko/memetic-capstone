@@ -1,1 +1,1 @@
-The content of meme_generator.py
+The full content of the meme_generator.py file from artifacts
