@@ -1,1 +1,1 @@
-The full content of the meme_generator.py file from artifacts
+Full content of meme_generator.py from /home/workdir/artifacts/memetic-capstone/meme_generator.py
