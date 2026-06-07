@@ -1,22 +1,25 @@
+# Python
 __pycache__/
-*.pyc
-.DS_Store
+*.py[cod]
+*$py.class
 
-# Large model and data files (do not commit)
-*.safetensors
-*.bin
-*.pt
-outputs/
-memetic_qwen*/
-data/processed*/
-unsloth_compiled_cache/
-huggingface_tokenizers_cache/
-
-# Colab and temporary files
-.ipynb_checkpoints/
-*.ipynb
-
-# Environment
-.env
+# Virtual environments
 venv/
-env/
+.env
+
+# Large model files
+*.bin
+*.safetensors
+models/
+
+# Data
+*.csv
+*.json
+!requirements.txt
+
+# Colab / Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db

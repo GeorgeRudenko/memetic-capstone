@@ -1,37 +1,18 @@
 import streamlit as st
-from inference import generate_memes
-import time
 
-st.set_page_config(page_title="Memetic AI", page_icon="🤖", layout="centered")
+st.set_page_config(page_title="Memetic - AI Meme Generator", layout="wide")
 
-st.title("🤖 Memetic AI")
-st.subheader("Собственная fine-tuned модель для генерации мемов")
-st.caption("Capstone Project — Георгий Руденко")
+st.title("🤡 Memetic - AI-Powered Meme Generator")
 
-st.markdown("---")
+st.write("Generate modern selling memes using a fine-tuned model.")
 
-col1, col2 = st.columns(2)
+product = st.text_input("Product / Service", "Gym App")
+pain = st.text_area("User Pain Point", "Users lack motivation to exercise regularly")
 
-with col1:
-    product = st.text_input("**Product / Brand**", value="Gym App")
+if st.button("Generate Memes"):
+    st.success("Memes generated! (Demo mode - model will be loaded here)")
+    st.write("1. When you finally open the app and suddenly feel motivated...")
+    st.write("2. Motivation? I don't know her...")
+    st.write("3. Opened Gym App and instantly wanted to live again")
 
-with col2:
-    pain = st.text_input("**Customer Pain**", value="no motivation to exercise")
-
-num = st.slider("Number of memes", 1, 5, 3)
-
-if st.button("🚀 Generate Memes", type="primary"):
-    if product.strip() and pain.strip():
-        with st.spinner("Model is thinking..."):
-            start = time.time()
-            memes = generate_memes(product, pain, num)
-            end = time.time()
-        
-        st.success(f"Done in {end-start:.1f} seconds!")
-        for i, meme in enumerate(memes, 1):
-            st.markdown(f"**{i}.** {meme}")
-    else:
-        st.error("Please fill both fields!")
-
-st.markdown("---")
-st.caption("Model: Qwen2.5-3B fine-tuned | For HSE Capstone")
+st.caption("Fine-tuned model for HSE Capstone Project")

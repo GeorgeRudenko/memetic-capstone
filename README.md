@@ -1,12 +1,38 @@
-# Memetic AI — AI-Powered Meme Generator
+# Memetic Capstone
 
-**Capstone Project**
+AI-Powered Meme Generator using Fine-tuned Model
 
-Собственная fine-tuned модель (Qwen2.5-3B) для генерации мемов по Product + Pain Point.
+Capstone Project for HSE Master's in Business Informatics
 
-## Как запустить
+## Overview
 
-### Веб-приложение (Streamlit)
+This project develops a fine-tuned language model capable of generating modern, selling memes based on a product description and user pain point.
+
+## Key Features
+
+- Fine-tuned Qwen2.5-7B model for high-quality meme text generation
+- Support for real-world meme datasets (MemeSafetyBench + ImgFlip templates)
+- Clean Streamlit web interface
+- Professional project structure ready for presentation
+
+## Project Structure
+
+```
+memetic-capstone/
+├── app.py                 # Streamlit web interface
+├── inference.py           # Main generation logic
+├── data_processing.py     # Dataset preparation
+├── fine_tuning/
+│   └── train.py           # Training script (Unsloth/LoRA)
+├── notebooks/             # Experiment notebooks
+├── data/                  # Datasets
+├── presentation/          # Slides
+├── requirements.txt
+└── .gitignore
+```
+
+## Getting Started
+
 ```bash
 git clone https://github.com/GeorgeRudenko/memetic-capstone.git
 cd memetic-capstone
@@ -14,16 +40,13 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-### Или через скрипт
-```bash
-python inference.py
-```
+## Model Training
 
-## Структура проекта
-- `app.py` — Streamlit веб-интерфейс
-- `inference.py` — генерация мемов
-- `data_processing.py` — подготовка данных
-- `fine_tuning/train.py` — скрипт обучения
-- `Memetic_MVP_v2.pptx` — презентация
+The model is fine-tuned on a combination of:
+- ImgFlip templates (clean images)
+- MemeSafetyBench (real-world memes)
+- High-quality synthetic data generated via powerful LLMs
 
-**Автор:** Георгий Руденко
+## License
+
+Educational project for HSE Capstone.
