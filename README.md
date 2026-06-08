@@ -49,6 +49,17 @@ memetic_capstone/
 | Inference precision  | bfloat16 (no quantization required on A100)      |
 | Template retrieval   | Sentence Transformers (all-MiniLM-L6-v2)         |
 
+## Important: Cloning with Large Files
+
+This repository uses **Git LFS** for the model file (`adapter_model.safetensors`).
+
+When cloning, make sure Git LFS is installed:
+
+```bash
+git lfs install
+git clone https://github.com/GeorgeRudenko/memetic-capstone.git
+```
+
 ## Deployment
 
 **Recommended Platform:** Hugging Face Spaces
