@@ -7,15 +7,13 @@ __pycache__/
 venv/
 .env
 
-# Large model files
-*.bin
-*.safetensors
-models/
+# Large model files (use Git LFS instead)
+# *.bin
+# *.safetensors   # commented out - we use LFS for model files
 
-# Data
+# Data (keep json templates)
 *.csv
-*.json
-!requirements.txt
+# *.json        # commented out - we need meme_templates_clean.json
 
 # Colab / Jupyter
 .ipynb_checkpoints/
