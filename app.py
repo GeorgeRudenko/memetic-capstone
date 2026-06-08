@@ -1,18 +1,27 @@
 import streamlit as st
+from meme_generator_local import MemeGenerator
 
-st.set_page_config(page_title="Memetic - AI Meme Generator", layout="wide")
+st.set_page_config(page_title="Memetic Generator", page_icon="🧠", layout="centered")
 
-st.title("🤡 Memetic - AI-Powered Meme Generator")
+st.title("🧠 Memetic Generator")
+st.markdown("Генератор демотиваторов")
 
-st.write("Generate modern selling memes using a fine-tuned model.")
+@st.cache_resource
+def get_generator():
+    gen = MemeGenerator()
+    gen.load_templates("meme_templates_clean.json")
+    return gen
 
-product = st.text_input("Product / Service", "Gym App")
-pain = st.text_area("User Pain Point", "Users lack motivation to exercise regularly")
+generator = get_generator()
 
-if st.button("Generate Memes"):
-    st.success("Memes generated! (Demo mode - model will be loaded here)")
-    st.write("1. When you finally open the app and suddenly feel motivated...")
-    st.write("2. Motivation? I don't know her...")
-    st.write("3. Opened Gym App and instantly wanted to live again")
+product = st.text_input("Продукт / Ситуация", value="Jira")
+pain = st.text_area("Боль / Проблема", value="backlog task accidentally got into to-do", height=100)
 
-st.caption("Fine-tuned model for HSE Capstone Project")
+if st.button("Сгенерировать демотиватор", type="primary"):
+    if product and pain:
+        with st.spinner("Генерирую..."):
+            output_path = "generated_meme.png"
+            generator.generate_meme(product.strip(), pain.strip(), output_path)
+            st.image(output_path, use_container_width=True)
+    else:
+        st.warning("Заполни оба поля")

@@ -1,5 +1,8 @@
-groq
-pillow
-requests
+streamlit
+torch
+transformers
+peft
 sentence-transformers
+Pillow
+requests
 numpy

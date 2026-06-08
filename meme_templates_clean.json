@@ -1,0 +1,318 @@
+{
+  "drake": {
+    "url": "https://i.imgflip.com/30b1gx.jpg",
+    "description": "Drake disapproving something on the left vs approving it on the right. Classic format for comparing bad vs good options, old way vs new way, or negative vs positive take.",
+    "recommended_structure": "Two parts: left = disapproval/bad, right = approval/good. Often uses 'X:' prefix on left.",
+    "font_color": "black",
+    "has_outline": false,
+    "style": "comparison",
+    "zones": [
+      {
+        "cx_pct": 0.75,
+        "cy_pct": 0.25,
+        "max_w_pct": 0.42,
+        "max_h_pct": 0.23
+      },
+      {
+        "cx_pct": 0.75,
+        "cy_pct": 0.75,
+        "max_w_pct": 0.42,
+        "max_h_pct": 0.23
+      }
+    ]
+  },
+  "distracted_boyfriend": {
+    "url": "https://i.imgflip.com/1ur9b0.jpg",
+    "description": "Man looking at another woman while his girlfriend looks disapprovingly. Represents choosing something new/tempting over current/safe option, distraction, or disloyalty.",
+    "recommended_structure": "Three parts: left = girlfriend (current), center = man (deciding), right = other woman (new option).",
+    "font_color": "white",
+    "has_outline": true,
+    "style": "triangle",
+    "zones": [
+      {
+        "cx_pct": 0.28,
+        "cy_pct": 0.36,
+        "max_w_pct": 0.22,
+        "max_h_pct": 0.18
+      },
+      {
+        "cx_pct": 0.49,
+        "cy_pct": 0.56,
+        "max_w_pct": 0.18,
+        "max_h_pct": 0.18
+      },
+      {
+        "cx_pct": 0.75,
+        "cy_pct": 0.42,
+        "max_w_pct": 0.22,
+        "max_h_pct": 0.18
+      }
+    ]
+  },
+  "change_my_mind": {
+    "url": "https://i.imgflip.com/24y43o.jpg",
+    "description": "Steven Crowder sitting with a 'Change My Mind' sign. Used for presenting a controversial, unpopular, or spicy opinion as a challenge.",
+    "recommended_structure": "One confident or provocative statement that invites disagreement.",
+    "font_color": "black",
+    "has_outline": false,
+    "style": "single_caption",
+    "zones": []
+  },
+  "two_buttons": {
+    "url": "https://i.imgflip.com/1g8my4.jpg",
+    "description": "Person sweating while having to choose between two red buttons. Represents impossible choice between two bad options or two equally tempting bad decisions.",
+    "recommended_structure": "Label on left button + label on right button. The sweating person is in the middle.",
+    "font_color": "black",
+    "has_outline": false,
+    "style": "choice",
+    "zones": []
+  },
+  "batman_slapping_robin": {
+    "url": "https://i.imgflip.com/9ehk.jpg",
+    "description": "Batman repeatedly slapping Robin. Used when someone is being harshly corrected, shut down, or told their idea is stupid.",
+    "recommended_structure": "Usually two parts: Robin says something dumb → Batman slaps him with a harsh reply.",
+    "font_color": "white",
+    "has_outline": true,
+    "style": "dialogue",
+    "zones": []
+  },
+  "woman_yelling_at_cat": {
+    "url": "https://i.imgflip.com/345v97.jpg",
+    "description": "Woman screaming at a calm, unbothered cat. Represents overreacting, arguing with someone who doesn't care, or one-sided anger.",
+    "recommended_structure": "Two sides: angry person vs calm/unfazed party.",
+    "font_color": "white",
+    "has_outline": true,
+    "style": "contrast",
+    "zones": []
+  },
+  "futurama_fry": {
+    "url": "https://i.imgflip.com/3si4.jpg",
+    "description": "Philip J. Fry squinting suspiciously. Used for doubt, skepticism, or the classic 'Not sure if X... or Y...'.",
+    "recommended_structure": "One caption expressing doubt or internal conflict.",
+    "font_color": "white",
+    "has_outline": true,
+    "style": "single_caption",
+    "zones": []
+  },
+  "one_does_not_simply": {
+    "url": "https://i.imgflip.com/1bij.jpg",
+    "description": "Boromir saying 'One does not simply walk into Mordor'. Used when something is much harder or more complicated than it appears.",
+    "recommended_structure": "One statement about something being deceptively difficult.",
+    "font_color": "white",
+    "has_outline": true,
+    "style": "single_caption",
+    "zones": []
+  },
+  "success_kid": {
+    "url": "https://i.imgflip.com/1bh8.jpg",
+    "description": "Baby clenching fist in victory. Represents small wins, finally succeeding after struggle, or ironically celebrating something minor.",
+    "recommended_structure": "One triumphant or ironically proud statement.",
+    "font_color": "black",
+    "has_outline": false,
+    "style": "single_caption",
+    "zones": []
+  },
+  "doge": {
+    "url": "https://i.imgflip.com/4t0m5.jpg",
+    "description": "Shiba Inu with colorful Comic Sans text. Used for very simple, broken English, or ironically profound observations.",
+    "recommended_structure": "Short, meme-y, slightly broken English phrases.",
+    "font_color": "white",
+    "has_outline": true,
+    "style": "single_caption",
+    "zones": []
+  },
+  "ancient_aliens": {
+    "url": "https://i.imgflip.com/1bgw.jpg",
+    "description": "Giorgio A. Tsoukalos with wild hair. Used for wild theories, conspiracy-style explanations, or 'I'm not saying it's aliens, but...'.",
+    "recommended_structure": "Conspiracy or overly complicated explanation style.",
+    "font_color": "white",
+    "has_outline": true,
+    "style": "single_caption",
+    "zones": []
+  },
+  "roll_safe": {
+    "url": "https://i.imgflip.com/2d3al6.jpg",
+    "description": "Kayode Ewumi pointing at his temple. Represents 'smart' but actually dumb life hacks or obvious solutions presented as genius.",
+    "recommended_structure": "One 'clever' but actually stupid or obvious idea.",
+    "font_color": "white",
+    "has_outline": true,
+    "style": "single_caption",
+    "zones": []
+  },
+  "surprised_pikachu": {
+    "url": "https://i.imgflip.com/1otk96.jpg",
+    "description": "Surprised Pikachu. Used when something predictable happens but you're still shocked (often ironically).",
+    "recommended_structure": "Expression of fake or exaggerated surprise at an obvious outcome.",
+    "font_color": "black",
+    "has_outline": false,
+    "style": "single_caption",
+    "zones": []
+  },
+  "mocking_spongebob": {
+    "url": "https://i.imgflip.com/1otk96.jpg",
+    "description": "Spongebob mocking by repeating someone's words in a dumb voice. Used to make fun of someone's argument or statement.",
+    "recommended_structure": "Usually repeats or mocks what someone said in a childish way.",
+    "font_color": "white",
+    "has_outline": true,
+    "style": "dialogue",
+    "zones": []
+  },
+  "is_this_a_pigeon": {
+    "url": "https://i.imgflip.com/1o00in.jpg",
+    "description": "Anime guy pointing at a butterfly asking 'Is this a pigeon?'. Represents completely misunderstanding something obvious.",
+    "recommended_structure": "Misidentifying or overcomplicating something simple.",
+    "font_color": "white",
+    "has_outline": true,
+    "style": "single_caption",
+    "zones": []
+  },
+  "stonks": {
+    "url": "https://i.imgflip.com/3si4.jpg",
+    "description": "Meme Man with rising graph saying 'Stonks'. Used for ironic bad financial decisions or stupid ideas that somehow work.",
+    "recommended_structure": "Ironic or stupid decision presented as smart.",
+    "font_color": "white",
+    "has_outline": true,
+    "style": "single_caption",
+    "zones": []
+  },
+  "left_exit_12_off_ramp": {
+    "url": "https://i.imgflip.com/22bdq6.jpg",
+    "description": "Car about to miss the highway exit. Represents failing at the last moment, bad timing, or almost doing the right thing.",
+    "recommended_structure": "Failing or making a bad decision at the critical moment.",
+    "font_color": "white",
+    "has_outline": true,
+    "style": "single_caption",
+    "zones": []
+  },
+  "philosoraptor": {
+    "url": "https://i.imgflip.com/1bhw.jpg",
+    "description": "Philosoraptor (green dinosaur). Used for deep, philosophical, or pseudo-intellectual questions and observations.",
+    "recommended_structure": "One thoughtful or absurdly deep question/statement.",
+    "font_color": "white",
+    "has_outline": true,
+    "style": "single_caption",
+    "zones": []
+  },
+  "bad_luck_brian": {
+    "url": "https://i.imgflip.com/1bhw.jpg",
+    "description": "Bad Luck Brian. Used for someone who has extremely bad luck in everyday situations.",
+    "recommended_structure": "One unfortunate or comically bad outcome.",
+    "font_color": "white",
+    "has_outline": true,
+    "style": "single_caption",
+    "zones": []
+  },
+  "first_world_problems": {
+    "url": "https://i.imgflip.com/1bh8.jpg",
+    "description": "First World Problems. Used for complaining about minor, privileged inconveniences as if they are serious problems.",
+    "recommended_structure": "Complaining about something trivial in a dramatic way.",
+    "font_color": "black",
+    "has_outline": false,
+    "style": "single_caption",
+    "zones": []
+  },
+  "scumbag_steve": {
+    "url": "https://i.imgflip.com/1bh8.jpg",
+    "description": "Scumbag Steve. Used for selfish, inconsiderate, or asshole behavior presented casually.",
+    "recommended_structure": "One caption about doing something shitty.",
+    "font_color": "white",
+    "has_outline": true,
+    "style": "single_caption",
+    "zones": []
+  },
+  "good_guy_greg": {
+    "url": "https://i.imgflip.com/1bh8.jpg",
+    "description": "Good Guy Greg. Used for being unexpectedly decent, helpful, or having good etiquette in contrast to expectations.",
+    "recommended_structure": "One wholesome or surprisingly good action.",
+    "font_color": "white",
+    "has_outline": true,
+    "style": "single_caption",
+    "zones": []
+  },
+  "y_u_no": {
+    "url": "https://i.imgflip.com/1bh8.jpg",
+    "description": "Y U NO Guy. Used for frustrated questions like 'Why don't you X?' or complaining about something not happening.",
+    "recommended_structure": "Frustrated question or demand.",
+    "font_color": "white",
+    "has_outline": true,
+    "style": "single_caption",
+    "zones": []
+  },
+  "matrix_morpheus": {
+    "url": "https://i.imgflip.com/1bh8.jpg",
+    "description": "Morpheus from The Matrix offering the red pill. Used for presenting a choice between comfortable lie and harsh truth.",
+    "recommended_structure": "Presenting two options: comfortable illusion vs uncomfortable reality.",
+    "font_color": "white",
+    "has_outline": true,
+    "style": "comparison",
+    "zones": []
+  },
+  "x_everywhere": {
+    "url": "https://i.imgflip.com/1bh8.jpg",
+    "description": "X, X Everywhere. Used when something is suddenly appearing all over the place (often ironically or annoyingly).",
+    "recommended_structure": "Something appearing everywhere in an overwhelming way.",
+    "font_color": "white",
+    "has_outline": true,
+    "style": "single_caption",
+    "zones": []
+  },
+  "pepperidge_farm_remembers": {
+    "url": "https://i.imgflip.com/1bh8.jpg",
+    "description": "Pepperidge Farm Remembers. Used for nostalgically or sarcastically recalling how things used to be better/different.",
+    "recommended_structure": "Nostalgic or sarcastic 'back in my day' statement.",
+    "font_color": "white",
+    "has_outline": true,
+    "style": "single_caption",
+    "zones": []
+  },
+  "brace_yourselves": {
+    "url": "https://i.imgflip.com/1bh8.jpg",
+    "description": "Brace Yourselves, X is Coming. Used to announce that something (usually annoying or hyped) is about to happen.",
+    "recommended_structure": "Warning that something is coming.",
+    "font_color": "white",
+    "has_outline": true,
+    "style": "single_caption",
+    "zones": []
+  },
+  "ain't_nobody_got_time": {
+    "url": "https://i.imgflip.com/1bh8.jpg",
+    "description": "Ain't Nobody Got Time for That. Used when something is too time-consuming or not worth the effort.",
+    "recommended_structure": "Dismissing something as not worth time or effort.",
+    "font_color": "white",
+    "has_outline": true,
+    "style": "single_caption",
+    "zones": []
+  },
+  "overly_attached_girlfriend": {
+    "url": "https://i.imgflip.com/1bh8.jpg",
+    "description": "Overly Attached Girlfriend. Used for clingy, jealous, or intense relationship behavior (often exaggerated).",
+    "recommended_structure": "Clingy or intense relationship behavior.",
+    "font_color": "white",
+    "has_outline": true,
+    "style": "single_caption",
+    "zones": []
+  },
+  "405658": {
+    "name": "Grumpy Cat",
+    "description": "Classic meme template: Grumpy Cat. ",
+    "url": "https://i.imgflip.com/405658.jpg",
+    "style": "classic",
+    "recommended_structure": "standard top-bottom or comparison",
+    "has_outline": true,
+    "font_color": "white",
+    "zones": [
+      {
+        "cx_pct": 0.5,
+        "cy_pct": 0.25,
+        "max_w_pct": 0.85,
+        "max_h_pct": 0.35
+      },
+      {
+        "cx_pct": 0.5,
+        "cy_pct": 0.75,
+        "max_w_pct": 0.85,
+        "max_h_pct": 0.35
+      }
+    ]
+  }
+}
