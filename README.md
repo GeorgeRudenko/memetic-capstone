@@ -10,29 +10,33 @@ This project generates memes using a fine-tuned large language model. Given a pr
 
 The result is a humorous, often sarcastic meme that highlights the irony or frustration of real-world product issues.
 
-## How to Run Locally
+## How to Run
+
+### Option 1: Google Colab (Recommended for quick demo)
+
+1. Open the notebook: `development_notebook.ipynb` in Google Colab
+2. Run all cells (`Runtime` → `Run all`)
+3. In the last cell a public link will appear (e.g. `https://xxxx.gradio.live`)
+4. Open the link to test the generator
+
+### Option 2: Local Run
 
 ```bash
+git clone https://github.com/GeorgeRudenko/memetic-capstone.git
+cd memetic-capstone
+
 pip install -r requirements.txt
-streamlit run app.py
+python app.py
 ```
-
-## How to Use
-
-1. Open the web interface by running `streamlit run app.py`
-2. Enter a product or situation (e.g., "Jira", "Zoom", "Google Docs")
-3. Describe the problem or pain point (e.g., "backlog task accidentally got into to-do")
-4. Click the "Generate meme" button
-5. View and download your generated meme
 
 ## Project Structure
 
 ```
 memetic_capstone/
-├── app.py                           # Streamlit web interface
+├── app.py                           # Gradio web interface
 ├── meme_generator_local.py          # Core generation logic
 ├── meme_templates_clean.json        # Cleaned set of working meme templates
-├── development_notebook.ipynb       # Development and experimentation notebook
+├── development_notebook.ipynb       # Main development notebook
 ├── checkpoints/
 │   └── qwen_lora_memes_v1/          # Fine-tuned LoRA adapter
 ├── requirements.txt
@@ -46,32 +50,23 @@ memetic_capstone/
 | Base model           | Qwen/Qwen2.5-7B-Instruct                         |
 | Fine-tuning method   | LoRA                                             |
 | Training data        | Custom dataset of meme-style captions            |
-| Inference precision  | bfloat16 (no quantization required on A100)      |
+| Inference precision  | bfloat16 (no quantization)                       |
 | Template retrieval   | Sentence Transformers (all-MiniLM-L6-v2)         |
 
 ## Important: Cloning with Large Files
 
 This repository uses **Git LFS** for the model file (`adapter_model.safetensors`).
 
-When cloning, make sure Git LFS is installed:
-
 ```bash
 git lfs install
 git clone https://github.com/GeorgeRudenko/memetic-capstone.git
 ```
 
-## Deployment
+## Note on Deployment
 
-**Recommended Platform:** Hugging Face Spaces
+An attempt was made to deploy the application to Hugging Face Spaces. However, due to difficulties installing PyTorch in the Spaces environment (especially with the large model), a stable deployment was not achieved within the available time.
 
-1. Create a new Space and select **Streamlit** as the SDK
-2. Upload the following files:
-   - `app.py`
-   - `meme_generator_local.py`
-   - `meme_templates_clean.json`
-   - `requirements.txt`
-   - `adapter_config.json` and `adapter_model.safetensors` from `checkpoints/qwen_lora_memes_v1/`
-3. Deploy the Space
+For demonstration purposes, the project is run via Google Colab with Gradio's built-in public link sharing. This provides a working web interface without requiring complex infrastructure setup.
 
 ## What Was Implemented
 
@@ -80,7 +75,7 @@ git clone https://github.com/GeorgeRudenko/memetic-capstone.git
 - Semantic retrieval of meme templates using Sentence Transformers
 - Custom rendering engine for demotivator-style format (black background, white border, two-line caption)
 - Cleaning of the template database to include only templates with working image URLs
-- Development of a user-friendly Streamlit web interface
+- Development of a Gradio web interface
 
 ## License
 
