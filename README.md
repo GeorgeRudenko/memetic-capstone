@@ -1,51 +1,57 @@
 # 🧠 Memetic Generator
 
-An automated local pipeline and web application that generates contextual demotivator memes. The project leverages a fine-tuned **Qwen2.5-7B** Large Language Model with tailored **LoRA** checkpoints to generate witty captions, combined with a **SentenceTransformer** retriever to select the most relevant visual templates.
+An automated pipeline that generates contextual **demotivator-style memes** using a fine-tuned **Qwen2.5-7B** model with LoRA. The system combines semantic template retrieval (Sentence Transformers) with high-quality text generation and custom Pillow-based rendering.
+
+## 🚀 Live Demo
+
+**Working Production Version:** [https://huggingface.co/spaces/georgiyruden/memetic-generator](https://huggingface.co/spaces/georgiyruden/memetic-generator)
+
+---
 
 ## 🛠️ Technology Stack
 
-*   **LLM Core:** Qwen2.5-7B (Fine-tuned using LoRA adapters)
-*   **Vector Retrieval:** `sentence-transformers` for semantic matching of meme templates
-*   **UI Framework:** Gradio 5 (Optimized with isolated client-side rendering)
-*   **Deployment:** Configured for dynamic CPU/Float32 fallback environments
-*   **Image Processing:** Pillow (PIL) for high-fidelity demotivator canvas generation
+- **LLM**: Qwen2.5-7B-Instruct fine-tuned with LoRA
+- **Retrieval**: `sentence-transformers` (semantic search over meme templates)
+- **UI**: Gradio
+- **Image Rendering**: Pillow (PIL) — classic demotivator style (black background + white border + dual text)
+- **Model Storage**: Git LFS
 
-## 📍 Architecture & Pipeline
+## 🔄 Pipeline
 
-1.  **Semantic Retrieval:** The user inputs a product (e.g., Jira, Slack) and a specific pain point. The system uses embeddings to query a curated dataset (`meme_templates_clean.json`) and retrieve the best-fitting background meme template.
-2.  **Contextual Generation:** The fine-tuned LLM receives an engineered prompt containing the user inputs and generates the upper and lower text for the demotivator, maintaining high contextual relevance.
-3.  **Canvas Rendering:** The text and image are dynamically composited into a classic demotivator template layout.
+1. User provides **Product** + **Pain** (e.g. "Jira" + "backlog task accidentally got into to-do")
+2. System retrieves the most relevant meme template using semantic embeddings
+3. Fine-tuned LLM generates sharp, contextual caption (two lines)
+4. Text is rendered on the template using Pillow in classic demotivator format
 
-## 🚀 Local Setup & Installation
+## 🚀 How to Run Locally
 
-### Prerequisites
-*   Python 3.10+
-*   Highly recommended: Virtual environment manager (`venv` or `conda`)
-
-### 1. Clone the Repository
 ```bash
 git clone https://github.com/GeorgeRudenko/memetic-capstone.git
 cd memetic-capstone
-```
 
-### 2. Install Dependencies
-```bash
 pip install -r requirements.txt
-```
-
-### 3. Run the Application Locally
-```bash
 python app.py
 ```
 
-Once initialized, the interface will be served locally at http://localhost:7860.
+## 📁 Project Structure
 
-## 📦 Deployment
+```
+memetic-capstone/
+├── app.py
+├── meme_generator_local.py
+├── meme_templates_clean.json
+├── development_notebook.ipynb
+├── checkpoints/qwen_lora_memes_v1/   # LoRA weights
+├── requirements.txt
+└── README.md
+```
 
-The project is designed to run via Google Colab with Gradio's public link sharing for quick demonstrations. A stable deployment on platforms like Hugging Face Spaces was attempted but faced challenges with PyTorch installation in restricted CPU environments.
+## 🔗 Important Notes
 
-For the most reliable demo experience, use the provided Colab notebook.
+- The model file (`adapter_model.safetensors`) is stored using **Git LFS**.
+- For best results when cloning: `git lfs install` before cloning.
+- The Gradio interface is also available via Google Colab notebook for quick testing.
 
 ## 📄 License
 
-This project is open-source and available under the MIT License.
+MIT License
