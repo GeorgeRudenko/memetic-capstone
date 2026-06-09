@@ -7,13 +7,16 @@ __pycache__/
 venv/
 .env
 
-# Large model files (use Git LFS instead)
+# Large model files (handled by Git LFS)
 # *.bin
-# *.safetensors   # commented out - we use LFS for model files
+# *.safetensors
 
-# Data (keep json templates)
+# Data
 *.csv
-# *.json        # commented out - we need meme_templates_clean.json
+
+# Gradio temporary files
+.gradio/
+generated_meme.png
 
 # Colab / Jupyter
 .ipynb_checkpoints/
